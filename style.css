@@ -20,6 +20,12 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /*Part 0 Glowing Cursor*/
@@ -422,6 +428,39 @@ section {
   resize: none;
 }
 
+/*Part 8 QR Code*/
+
+.qr-code{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  text-align: center;
+}
+.qr-content h2{
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+.qr-content p{
+  font-size: 2rem;
+  max-width: 40rem;
+}
+.qr-img img{
+  width: 25rem;
+  height: 25rem;
+  border-radius: 2rem;
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  padding: 1.5rem;
+  background-color: var(--second-bg-color);
+  transition: 0.4s ease-in-out;
+}
+.qr-img img:hover{
+  box-shadow: 0 0 50px var(--main-color),
+              0 0 50px var(--main-color);
+  transform: scale(1.03);
+}
+
 .footer{
   background-color: var(--second-bg-color);
   padding: 50px 0;
@@ -453,19 +492,24 @@ section {
   font-size: 16px;
 }
 
+/* ===== Tablets & small laptops ===== */
 @media(max-width:1285px){
   #menu-icon{
     display: block;
+  }
+
+  .header{
+    padding: 2rem 5%;
   }
 
   .navbar{
   position: absolute;
   top: 100%;
   right: 0;
-  width: 50%;
+  width: 60%;
   padding: 1rem 3rem;
-  background: rgba(0, 0, 0, 0.8);
-  border-bottom-left-radius: 2px var(--main-color);
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom-left-radius: 1rem;
   border-bottom: 2px solid var(--main-color);
   display: none;
   }
@@ -486,19 +530,30 @@ section {
   .gradient-btn{
     display: none;
   }
+
+  section{
+    padding: 10rem 5% 5rem;
+  }
+
   .home{
     flex-direction: column-reverse;
     margin: 5rem 0;
-    gap: 5rem
+    gap: 5rem;
+    text-align: center;
   }
 
   .home-content{
     align-items: center;
     text-align:center;
   }
+
+  .home-content h1{
+    font-size: 6rem;
+  }
+
   .home-img img{
-    width: 50vw;
-    height: 50vw;
+    width: 40rem;
+    height: 40rem;
   }
   .about{
     flex-direction: column-reverse;
@@ -506,15 +561,121 @@ section {
 
   }
 
-  .about h2{
+  .about-content h2{
     text-align: center;
     margin: 2rem 0;
   } 
-  .about img{
-    width: 52vw;
+  .about-img img{
+    width: 40rem;
+    height: 40rem;
   }
 
   .contact form{
     flex-direction: column;
+  }
+
+  .qr-code{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== Small tablets ===== */
+@media(max-width: 768px){
+  html{
+    font-size: 55%;
+  }
+
+  .header{
+    padding: 2rem 4%;
+  }
+
+  .home-content h1{
+    font-size: 5rem;
+  }
+  .home-content h3{
+    font-size: 3rem;
+  }
+  .home-content p{
+    font-size: 2rem;
+  }
+
+  .home-img img,
+  .about-img img{
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .heading{
+    font-size: 5rem;
+  }
+
+  .service-box{
+    height: auto;
+    min-height: 400px;
+    padding: 2rem;
+  }
+
+  .project-card img{
+    max-width: 100%;
+  }
+
+  .footer ul li{
+    margin: 0 10px 10px;
+  }
+}
+
+/* ===== Mobile phones ===== */
+@media(max-width: 480px){
+  html{
+    font-size: 50%;
+  }
+
+  .header{
+    padding: 1.5rem 4%;
+  }
+
+  .logo{
+    font-size: 2.5rem;
+  }
+
+  .home-content h1{
+    font-size: 4rem;
+  }
+
+  .home-img img,
+  .about-img img{
+    width: 24rem;
+    height: 24rem;
+  }
+
+  .social-icons a{
+    font-size: 2.2rem;
+    padding: 0.8rem;
+    margin: 2rem 0.3rem;
+  }
+
+  .btn{
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  .services-container{
+    grid-template-columns: 1fr;
+  }
+
+  .project-box{
+    grid-template-columns: 1fr;
+  }
+
+  .contact form .input-box input,
+  .contact form textarea{
+    padding: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .qr-img img{
+    width: 18rem;
+    height: 18rem;
   }
 }
